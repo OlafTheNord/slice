@@ -36,7 +36,7 @@ func (w Withdrawal) Apply(a *Account) {
 func (b Bank) Execute(accountId int, tx Transaction) error {
 	_, ok := b.Accounts[accountId]
 	if !ok {
-		fmt.Errorf("account with %d id not found", accountId)
+		return fmt.Errorf("account with %d id not found", accountId)
 	}
 	tx.Apply(b.Accounts[accountId])
 	return nil
