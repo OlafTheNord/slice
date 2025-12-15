@@ -2,6 +2,7 @@ package main
 
 import (
 	srv "balance/src"
+	"fmt"
 )
 
 func main() {
@@ -38,7 +39,20 @@ func main() {
 		Fee:    500,
 	}
 
-	alfabank.Execute(1, dep1)
-	alfabank.Execute(2, dep2)
-	alfabank.Execute(3, dep3)
+	err := alfabank.Execute(1, dep1)
+	if err != nil {
+		fmt.Printf("some error for transaction %v\n", err)
+	}
+	err = alfabank.Execute(2, dep2)
+	if err != nil {
+		fmt.Printf("some error for transaction %v\n", err)
+	}
+	err = alfabank.Execute(3, dep3)
+	if err != nil {
+		fmt.Printf("some error for transaction %v\n", err)
+	}
+	err = alfabank.Execute(4, dep3)
+	if err != nil {
+		fmt.Printf("some error for transaction: %v\n", err)
+	}
 }

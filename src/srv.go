@@ -33,7 +33,7 @@ func (w Withdrawal) Apply(a *Account) {
 	a.Balance = a.Balance - (w.Amount + w.Fee)
 }
 
-func (b Bank) Execute(accountId int, tx Transaction) error {
+func (b *Bank) Execute(accountId int, tx Transaction) error {
 	_, ok := b.Accounts[accountId]
 	if !ok {
 		return fmt.Errorf("account with %d id not found", accountId)
